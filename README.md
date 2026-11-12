@@ -4,7 +4,7 @@ A local Windows-friendly tool for turning podcast links into full transcripts an
 
 ## Default Pipeline
 
-The default pipeline uses SiliconFlow only:
+The default pipeline uses SiliconFlow only1:
 
 ```text
 Audio transcription: FunAudioLLM/SenseVoiceSmall
