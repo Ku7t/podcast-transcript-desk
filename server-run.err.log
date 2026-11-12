@@ -1,0 +1,17 @@
+E:\Workplace\AI_Project_Workspace\podcast-transcript-desk\server.js:470
+    throw error;
+    ^
+
+Error: listen EACCES: permission denied 127.0.0.1:5173
+    at Server.setupListenHandle [as _listen2] (node:net:1919:21)
+    at listenInCluster (node:net:1998:12)
+    at node:net:2207:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EACCES',
+  errno: -4092,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 5173
+}
+
+Node.js v22.23.1

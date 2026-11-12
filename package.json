@@ -1,0 +1,19 @@
+{
+  "name": "podcast-transcript-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local podcast transcription and summary desk.",
+  "scripts": {
+    "setup:tools": "powershell -ExecutionPolicy Bypass -File scripts/install-tools.ps1",
+    "tools:check": "node scripts/check-tools.js",
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "ffmpeg-static": "^5.3.0"
+  }
+}

@@ -1,0 +1,2 @@
+Temporary directory cleanup deferred for C:\Users\Lin\AppData\Local\Temp\podcast-transcript-WfSfS3: EBUSY: resource busy or locked, unlink 'C:\Users\Lin\AppData\Local\Temp\podcast-transcript-WfSfS3\episode.m4a.part'
+Temporary directory cleanup failed for C:\Users\Lin\AppData\Local\Temp\podcast-transcript-WfSfS3: EBUSY: resource busy or locked, unlink 'C:\Users\Lin\AppData\Local\Temp\podcast-transcript-WfSfS3\episode.m4a.part'

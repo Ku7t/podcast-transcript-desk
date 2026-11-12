@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>播客转文字工作台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Podcast Transcript Desk</p>
+          <h1>播客链接进来，全文转写和摘要出去。</h1>
+          <p class="lead">
+            输入一期播客的链接，系统会在本机解析音频、调用转写模型生成完整文字稿，并给出结构化简短总结。
+          </p>
+        </div>
+        <form id="transcribe-form" class="panel">
+          <label for="podcast-url">播客链接</label>
+          <div class="input-row">
+            <input id="podcast-url" name="url" type="url" required placeholder="https://example.com/podcast/episode" />
+            <button id="submit-btn" type="submit">开始转写</button>
+          </div>
+          <div class="options">
+            <label class="check">
+              <input name="preferYtdlp" type="checkbox" checked />
+              <span>优先使用 yt-dlp 解析平台页面</span>
+            </label>
+            <label class="check">
+              <input name="keepTranscriptStyle" type="checkbox" checked />
+              <span>保留口语化表达</span>
+            </label>
+          </div>
+          <p class="hint">需要先在本机设置 <code>OPENAI_API_KEY</code>。音频只会临时下载到本机处理目录。</p>
+        </form>
+      </section>
+
+      <section class="workspace">
+        <aside class="status-panel">
+          <h2>处理状态</h2>
+          <ol id="steps" class="steps">
+            <li data-step="link">等待链接</li>
+            <li data-step="audio">解析和下载音频</li>
+            <li data-step="transcript">生成全文文字稿</li>
+            <li data-step="summary">整理摘要</li>
+          </ol>
+          <div id="message" class="message">把播客链接贴上来就可以开始。</div>
+        </aside>
+
+        <section class="result-panel">
+          <div class="tabs" role="tablist" aria-label="结果视图">
+            <button class="tab active" type="button" data-tab="summary">摘要</button>
+            <button class="tab" type="button" data-tab="transcript">全文</button>
+            <button class="tab" type="button" data-tab="meta">信息</button>
+          </div>
+
+          <article id="summary-view" class="view active">
+            <div id="summary-output" class="empty">摘要会显示在这里。</div>
+          </article>
+
+          <article id="transcript-view" class="view">
+            <div class="toolbar">
+              <button class="secondary" type="button" data-action="copy">复制全文</button>
+              <button class="secondary" type="button" data-action="download">下载 Markdown</button>
+            </div>
+            <pre id="transcript-output" class="transcript">全文文字稿会显示在这里。</pre>
+          </article>
+
+          <article id="meta-view" class="view">
+            <dl id="meta-output" class="meta">
+              <div><dt>来源</dt><dd>暂无</dd></div>
+              <div><dt>音频</dt><dd>暂无</dd></div>
+              <div><dt>模型</dt><dd>暂无</dd></div>
+            </dl>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
